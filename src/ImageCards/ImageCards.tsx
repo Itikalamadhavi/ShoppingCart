@@ -1,4 +1,5 @@
-import React from "react";
+
+import { Navigation } from '../Navigation/Navigation';
 import styles from './imageCards.module.css'
 
 export interface ImageSrc {
@@ -34,7 +35,13 @@ export const ImageCards = () => {
 
     const render = () => {
         return (
-            <div className={styles.cardstyles}>{renderImageContainerMultipleTimes()}</div>
+            <>
+                <Navigation/>
+                <div className={styles.cardstyles}>
+                    {renderImageContainerMultipleTimes()}
+                </div>
+            </>
+
         )
     }
     return render()
