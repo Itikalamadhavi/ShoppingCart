@@ -11,6 +11,7 @@ export const Login = () => {
 
     const loginContent = () => {
         return (
+           
             <div className={styles.loginContainer}>
                 <label>Email/Username:</label><br></br>
                 <input type='text' placeholder='enter email' className={styles.input}/><br></br>
@@ -20,15 +21,17 @@ export const Login = () => {
 
                 <div>
                     <span>Or Login with</span>
+                    <label>Enter phone number</label>
                     <input type="number" placeholder='enter phone number' className={styles.input}/>
                 </div>
             </div>
+           
         )
     }
 
     const render = () => {
         return (
-            <div className={styles.loginContainerPosition}>{loginContent()}</div>
+                <div className={styles.main}>{loginContent()}</div>
         )
     }
 
