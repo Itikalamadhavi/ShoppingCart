@@ -1,11 +1,17 @@
 .main {
   background: url('/public/online-fashion-shopping-collage.jpg') no-repeat;
   background-size: cover;
-  height: 100vh; /* Set the height of the container to the full viewport height */
-  display: block;
-  justify-content: center;
-  align-items: center;
+  height: 100vh; 
+  width: 100%;
+  background-position: 100%;
 }
+
+@media (max-width: 768px) {
+  .main {
+    background-size: contain;
+    /* Other styles */
+  }
+} 
 
 .submitButton {
   height: 40px;
@@ -56,4 +62,6 @@ span {
 label {
   color: rgb(66, 65, 65);
   font-family: cursive;
+  font-size: 13px;
 }
+

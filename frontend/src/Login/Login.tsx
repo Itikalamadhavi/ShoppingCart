@@ -9,6 +9,10 @@ export const Login = () => {
         navigate('/')
     }
 
+    const handleOTP = () => {
+        navigate('/') 
+    }
+
     const loginContent = () => {
         return (
            
@@ -18,11 +22,15 @@ export const Login = () => {
                 <label>Password:</label><br></br>
                 <input type="text" placeholder='enter password' className={styles.input}/><br></br>
                 <button className={styles.submitButton} onClick={()=>handleAfterLogin()}>Login</button>
+                <br></br>
 
-                <div>
+                <div >
+                    <br></br>
                     <span>Or Login with</span>
+                    <br></br>
                     <label>Enter phone number</label>
                     <input type="number" placeholder='enter phone number' className={styles.input}/>
+                    <button className={styles.submitButton} onClick={()=>handleOTP()}>Get OTP</button>
                 </div>
             </div>
            
