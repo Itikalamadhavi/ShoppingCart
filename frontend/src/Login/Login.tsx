@@ -1,30 +1,47 @@
 
+import { useState } from 'react';
 import styles from './login.module.css';
 import {useNavigate} from 'react-router-dom';
+import axios from 'axios';
 
 export const Login = () => {
 
+    const[email, setEmail] = useState<string>('')
+    const[password, setPassword] = useState<string>('')
+
     const navigate = useNavigate()
     const handleAfterLogin = () => {
-        navigate('/')
+        navigate('/images')
     }
 
     const handleOTP = () => {
-        navigate('/') 
+        navigate('/images') 
     }
 
     const loginContent = () => {
+
+
+        const handleSubmit = (e:any) => {
+            e.preventDefault()
+
+            axios.post('',{email,password})
+            .then(res=> {console.log(res)})
+            .catch(err => {console.log(err)})
+        }
+
         return (
            
             <div className={styles.loginContainer}>
+                <form action='POST' onSubmit={handleSubmit}>
                 <label>Email/Username:</label><br></br>
-                <input type='text' placeholder='enter email' className={styles.input}/><br></br>
+                <input type='text' placeholder='enter email' value={email} onChange={(e)=>setEmail(e.target.value)} className={styles.input}/><br></br>
                 <label>Password:</label><br></br>
-                <input type="text" placeholder='enter password' className={styles.input}/><br></br>
+                <input type="text" placeholder='enter password' value={password} onChange={(e)=>setPassword(e.target.value)} className={styles.input}/><br></br>
                 <button className={styles.submitButton} onClick={()=>handleAfterLogin()}>Login</button>
                 <br></br>
+                </form>
 
-                <div >
+                <div>
                     <br></br>
                     <span>Or Login with</span>
                     <br></br>
