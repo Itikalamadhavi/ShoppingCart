@@ -18,19 +18,18 @@ export const Login = () => {
         navigate('/images') 
     }
 
+    const handleSubmit = (e:any) => {
+        e.preventDefault()
+
+        axios.post('http:localhost:3000/login',{email,password})
+        .then(res=> {console.log(res)})
+        .catch(err => {console.log(err)})
+    }
+
+
     const loginContent = () => {
 
-
-        const handleSubmit = (e:any) => {
-            e.preventDefault()
-
-            axios.post('',{email,password})
-            .then(res=> {console.log(res)})
-            .catch(err => {console.log(err)})
-        }
-
-        return (
-           
+        return (     
             <div className={styles.loginContainer}>
                 <form action='POST' onSubmit={handleSubmit}>
                 <label>Email/Username:</label><br></br>
